@@ -1,5 +1,4 @@
-
-name: e-commerce project
+name: Java e commerse project  with Maven
 
 on:
   push:
