@@ -1,35 +1,25 @@
-name: Java e commerse project  with Maven
+name: Run Cucumber Tests
 
 on:
   push:
     branches:
-      - main
+      - main  # Adjust branch name as needed
   pull_request:
     branches:
-      - main
+      - main  # Adjust branch name as needed
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up JDK 11
+    - name: Set up JDK
       uses: actions/setup-java@v2
       with:
-        java-version: '19.0.1'
+        java-version: '11'  # Adjust Java version as needed
 
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
-
-    - name: Run tests
-      run: mvn -B test --file pom.xml
-
-    - name: Archive target directory
-      uses: actions/upload-artifact@v2
-      with:
-        name: java-app
-        path: target/
+      run: mvn clean test  # Adjust Maven command as needed
